@@ -18,7 +18,9 @@ var commentRoutes = require("./routes/comments"),
 
 mongoose.connect(
   process.env.DATABASEURL,
-  { useNewUrlParser: true }
+  { useNewUrlParser: true , useUnifiedTopology: true  },()=>{
+    console.log("database connected");
+  }
 );
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -53,9 +55,9 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.get("*", function(req, res) {
-  res.render("error");
-});
+// app.get("*", function(req, res) {
+//   res.render("error");
+// });
 
 app.listen(process.env.PORT || 3000, function() {
   console.log("listening on http://localhost:3000/");

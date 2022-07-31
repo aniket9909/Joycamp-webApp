@@ -8,7 +8,7 @@
             <div class="lead text-center text-capitalize">
               <%= campground.name %>
             </div>
-            <div class="card shadow-sm mt-2">
+            <!-- <div class="card shadow-sm mt-2">
               <div class="card-header">
                 <i class="far fa-calendar-alt"></i> Booking Window
               </div>
@@ -18,7 +18,7 @@
                     <%= campground.booking.end %>
                 </li>
               </ul>
-            </div>
+            </div> -->
             <% if (campground.tags[0] === "") { %>
               <% ; %>
                 <% } else { %>
@@ -46,9 +46,12 @@
                       </ul>
                     </div>
                     <div class="card shadow-sm mt-3">
-                      <div id="map"></div>
+                      <!-- <div id="map"></div> -->
+                      <div class="card-header">
+                        <i class="fas fa-map-marker-alt"></i> Address
+                      </div>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fas fa-map-marker-alt"></i>
+                        <li class="list-group-item"><i class=""></i>
                           <%= campground.location %>
                         </li>
                       </ul>
@@ -60,7 +63,7 @@
             <img class="card-img-top" src="<%= campground.image %>">
             <div class="card-body">
               <h5 class="card-title float-right">
-              $<%= campground.price %>/Night</h5>
+               Rs. <%= campground.price %>/Night</h5>
               <h5 class="card-title text-capitalize">
               <%= campground.name %>
               <div>
@@ -99,7 +102,6 @@
                                 <h5 class="card-title">
                         <i class="far fa-smile"></i> Amenities
                       </h5>
-
                                 <% for (var i = 0; i < campground.tags.length; i++) { %>
                                   <span class="badge badge-secondary text-capitalize"><%= campground.tags[i] %></span>
                                   <% } %>
@@ -263,8 +265,8 @@
 
     <script>
       function initMap() {
-        var lat = <%= campground.lat %>;
-        var lng = <%= campground.lng %>;
+        // var lat = <%= campground.lat %>;
+        // var lng = <%= campground.lng %>;
         var center = {
           lat: lat,
           lng: lng

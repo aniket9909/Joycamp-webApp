@@ -11,7 +11,7 @@
             <p>
               <small class="text-muted">Fields marked * are required.</small>
             </p>
-            <form action="/campgrounds" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <form action="/campgrounds" method="POST" class="needs-validation" novalidate>
               <div class="form-group">
                 <label for="">Name*</label>
                 <input type="text" class="form-control" name="campground[name]" placeholder="Name" required>
@@ -26,14 +26,12 @@
                   Please provide a price.
                 </div>
               </div>
-              <div class="input-group mb-3">
-                <div class="custom-file">
-                  <input type="file" name="image" accept="image/*" class="custom-file-input" id="image" aria-describedby="inputGroupFileAddon01"
-                    required>
-                  <div class="invalid-feedback">
-                    Please upload an image of your campground.
-                  </div>
-                  <label class="custom-file-label" for="inputGroupFile01">Image*</label>
+              <div class="form-group">
+                <label for="">Image*</label>
+                <input type="text" name="campground[image]" placeholder="Image URL" class="form-control"
+                  required>
+                <div class="invalid-feedback">
+                  Please upload an image of your campground.
                 </div>
               </div>
               <div class="form-group">

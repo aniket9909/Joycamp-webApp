@@ -12,8 +12,7 @@
             <p>
               <small class="text-muted">Fields marked * are required.</small>
             </p>
-            <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" class="needs-validation" enctype="multipart/form-data"
-              novalidate>
+            <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" class="needs-validation" novalidate>
               <div class="form-group">
                 <label>Name*</label>
                 <input type="text" class="form-control" name="campground[name]" value="<%= campground.name %>">
@@ -22,10 +21,18 @@
                 <label for="">Price/Night*</label>
                 <input type="number" class="form-control" name="campground[price]" value="<%= campground.price %>" min="0.01" step="0.01">
               </div>
-              <div class="input-group mb-3">
+              <!-- <div class="input-group mb-3">
                 <div class="custom-file">
                   <input type="file" name="image" accept="image/*" class="custom-file-input" id="image" aria-describedby="inputGroupFileAddon01">
                   <label class="custom-file-label" for="inputGroupFile01">Image*</label>
+                </div>
+              </div> -->
+              <div class="form-group">
+                <label for="">Image*</label>
+                <input type="text" name="campground[image]" placeholder="Image URL"  value="<%=campground.image%>" class="form-control"
+                  required>
+                <div class="invalid-feedback">
+                  Please upload an image of your campground.
                 </div>
               </div>
               <div class="form-group">
@@ -48,17 +55,19 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="">Booking Window (Start)*</label>
+                  <label for="">Booking Window </label>
                   <input type="text" class="form-control" name="campground[start]" value="<%= campground.booking.start %>" required>
                   <div class="invalid-feedback">
                     Please provide a booking window.
                   </div>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="">Booking Window (End)*</label>
+                  <label for=""> end</label>
                   <input type="text" class="form-control" name="campground[end]" value="<%= campground.booking.end %>" required>
                 </div>
               </div>
+              
+               
               <div class="form-group">
                 <label for="">Amenities separated by commas (boating,fishing,wifi)</label>
                 <input type="text" class="form-control" name="campground[tags]" value="<%= campground.tags %>">
